@@ -1,4 +1,4 @@
-# Data Science
+# Data Science - Project "Flip The Script"
 From our first meeting, I could better understand our target and what we wanted from Flip-The-Script. On the same day I started developing a function and doing some research. There were some algorithms related to the subject but as I thought, they covered part of our MVP and not all the requirements.
 
 RegEx was the key in the functions, therefore, I had to learn it. After the first implementations, I realized that the program ran faster and without any problem. Basically the function used a long string as a dictionary and by every match with the text (user input), the function delivered the conversion. This applied morphological and orthographic distinctions, and provided a conversion in accordance to these rules.
