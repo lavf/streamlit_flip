@@ -1,0 +1,277 @@
+id,global_bias_tgt,source,topic,sex
+1,biased,3,5,2
+2,biased,3,4,2
+3,non-biased,5,7,2
+4,non-biased,8,3,1
+5,biased,1,6,0
+6,biased,7,7,0
+7,biased,1,9,2
+8,slighlty biased,8,6,0
+9,non-biased,2,4,1
+10,non-biased,2,7,2
+11,biased,9,5,1
+12,biased,9,9,1
+13,non-biased,3,8,2
+14,biased,4,10,1
+15,non-biased,4,10,1
+16,slightly biased,4,1,1
+17,biased,5,1,0
+18,non-biased,5,9,0
+19,biased,1,2,0
+20,slightly biased,8,6,0
+21,biased,6,10,1
+22,biased,7,11,0
+23,biased,2,8,1
+24,slightly biased,9,2,1
+25,slightly biased,9,11,1
+26,biased,9,3,0
+27,biased,3,11,1
+28,biased,4,11,0
+29,slightly biased,4,8,0
+30,slightly biased,8,8,0
+31,biased,10,12,1
+32,biased,9,11,0
+33,slightly biased,11,3,1
+34,non-biased,12,5,1
+35,biased,12,2,1
+36,biased,3,2,1
+37,non-biased,11,9,0
+38,slightly biased,11,4,0
+39,non-biased,10,7,0
+40,biased,10,12,0
+41,slightly biased,12,7,0
+42,biased,1,11,1
+43,biased,1,7,0
+44,non-biased,1,12,0
+45,biased,1,3,1
+46,biased,1,12,1
+47,non-biased,6,9,0
+48,non-biased,6,4,0
+49,non-biased,6,4,1
+50,non-biased,6,1,0
+51,biased,6,1,1
+52,slightly biased,6,3,0
+53,biased,6,3,1
+54,non-biased,7,3,0
+55,non-biased,7,8,0
+56,non-biased,7,10,1
+57,non-biased,7,12,0
+58,biased,7,12,1
+59,non-biased,7,7,1
+60,non-biased,10,4,1
+61,slightly biased,10,7,1
+62,non-biased,10,4,0
+63,slightly biased,2,12,1
+64,biased,2,10,1
+65,biased,2,2,0
+66,biased,2,12,0
+67,slightly biased,2,2,1
+68,non-biased,2,10,0
+69,slightly biased,2,9,1
+70,slightly biased,2,11,1
+71,slightly biased,2,11,0
+72,biased,2,9,0
+73,non-biased,2,4,0
+74,non-biased,8,4,0
+75,biased,8,4,1
+76,biased,8,8,1
+77,slightly biased,8,3,0
+78,non-biased,8,2,0
+79,biased,8,7,0
+80,biased,8,7,1
+81,biased,8,2,1
+82,biased,8,6,1
+83,slightly biased,8,1,0
+84,non-biased,8,9,1
+85,biased,8,9,0
+86,biased,9,10,1
+87,biased,9,4,0
+88,non-biased,9,4,1
+89,slightly biased,9,9,0
+90,biased,11,10,1
+91,biased,11,2,0
+92,slightly biased,11,6,1
+93,non-biased,11,12,1
+94,non-biased,11,3,0
+95,non-biased,11,6,0
+96,non-biased,11,1,1
+97,slightly biased,11,1,0
+98,biased,11,2,1
+99,non-biased,11,12,0
+100,non-biased,11,4,1
+101,slightly biased,11,7,1
+102,biased,11,5,0
+103,slightly biased,2,1,0
+104,non-biased,2,1,1
+105,non-biased,2,3,1
+106,non-biased,2,3,0
+107,slightly biased,2,5,1
+108,slightly biased,2,5,0
+109,non-biased,2,6,1
+110,biased,2,6,0
+111,non-biased,2,7,0
+112,non-biased,2,7,1
+113,biased,2,8,0
+114,non-biased,1,1,0
+115,non-biased,1,1,1
+116,slightly biased,1,2,1
+117,non-biased,1,4,0
+118,non-biased,1,4,1
+119,biased,1,5,0
+120,non-biased,1,5,1
+121,slightly biased,1,6,1
+122,non-biased,1,7,1
+123,non-biased,1,8,0
+124,biased,1,8,1
+125,non-biased,1,9,0
+126,non-biased,1,9,1
+127,non-biased,1,10,0
+128,non-biased,1,10,1
+129,slightly biased,1,11,0
+130,slightly biased,3,1,0
+131,biased,3,1,1
+132,slightly biased,3,2,0
+133,slightly biased,3,3,0
+134,slightly biased,3,3,1
+135,non-biased,3,4,1
+136,biased,3,4,0
+137,biased,3,5,1
+138,biased,3,5,0
+139,slightly biased,3,6,0
+140,biased,3,6,1
+141,biased,3,7,0
+142,biased,3,7,1
+143,slightly biased,3,8,0
+144,non-biased,3,8,1
+145,biased,3,9,1
+146,biased,3,9,0
+147,biased,3,10,0
+148,slightly biased,3,10,1
+149,biased,3,11,0
+150,slightly biased,3,12,1
+151,slightly biased,3,12,0
+152,slightly biased,4,1,0
+153,biased,4,2,1
+154,non-biased,4,2,0
+155,biased,4,3,1
+156,non-biased,4,3,0
+157,biased,4,4,1
+158,slightly biased,4,4,0
+159,slightly biased,4,5,0
+160,slightly biased,4,5,1
+161,slightly biased,4,6,1
+162,biased,4,6,0
+163,non-biased,4,7,1
+164,slightly biased,4,7,0
+165,non-biased,4,8,1
+166,non-biased,4,9,0
+167,slightly biased,4,9,1
+168,slightly biased,4,10,0
+169,non-biased,4,11,1
+170,biased,4,12,1
+171,slightly biased,4,12,0
+172,slightly biased,6,2,0
+173,biased,6,2,1
+174,slightly biased,6,5,0
+175,non-biased,6,5,1
+176,biased,6,6,0
+177,slightly biased,6,6,1
+178,non-biased,6,7,0
+179,non-biased,6,7,1
+180,slightly biased,6,8,0
+181,biased,6,8,1
+182,slightly biased,6,9,1
+183,non-biased,6,10,0
+184,non-biased,6,11,0
+185,non-biased,6,11,1
+186,slightly biased,6,12,0
+187,biased,6,12,1
+188,non-biased,7,1,0
+189,non-biased,7,1,1
+190,biased,7,2,0
+191,biased,7,2,1
+192,non-biased,7,3,1
+193,non-biased,7,4,0
+194,non-biased,7,4,1
+195,slightly biased,7,5,0
+196,slightly biased,7,5,1
+197,non-biased,7,6,0
+198,biased,7,6,1
+199,non-biased,7,8,1
+200,non-biased,7,9,0
+201,non-biased,7,9,1
+202,biased,7,10,0
+203,biased,7,11,1
+204,biased,9,1,0
+205,slightly biased,9,1,1
+206,biased,9,2,0
+207,non-biased,9,3,1
+208,biased,9,5,0
+209,biased,9,6,0
+210,slightly biased,9,6,1
+211,biased,9,7,0
+212,biased,9,7,1
+213,slightly biased,9,8,0
+214,biased,9,8,1
+215,non-biased,9,10,0
+216,slightly biased,9,12,0
+217,slightly biased,9,12,1
+218,non-biased,12,1,0
+219,non-biased,12,1,1
+220,non-biased,12,2,0
+221,non-biased,12,3,0
+222,non-biased,12,3,1
+223,non-biased,12,4,0
+224,non-biased,12,4,1
+225,non-biased,12,5,0
+226,non-biased,12,6,0
+227,biased,12,6,1
+228,non-biased,12,7,1
+229,slightly biased,12,8,0
+230,non-biased,12,8,1
+231,non-biased,12,9,0
+232,non-biased,12,9,1
+233,slightly biased,12,10,0
+234,non-biased,12,10,1
+235,non-biased,12,11,0
+236,biased,12,11,1
+237,slightly biased,12,12,0
+238,slightly biased,12,12,1
+239,biased,8,1,1
+240,slightly biased,8,5,0
+241,biased,8,5,1
+242,slightly biased,8,10,0
+243,non-biased,8,10,1
+244,biased,8,11,0
+245,biased,8,11,1
+246,slightly biased,8,12,0
+247,slightly biased,8,12,1
+248,non-biased,5,10,1
+249,non-biased,5,4,1
+250,non-biased,5,9,1
+251,slightly biased,5,10,0
+252,non-biased,5,11,0
+253,slightly biased,5,2,0
+254,non-biased,5,8,0
+255,slightly biased,5,11,1
+256,biased,5,6,0
+257,biased,5,12,1
+258,non-biased,5,4,0
+259,biased,5,2,1
+260,non-biased,10,6,0
+261,slightly biased,10,6,1
+262,non-biased,10,11,1
+263,non-biased,10,9,0
+264,non-biased,10,9,1
+265,non-biased,10,2,0
+266,non-biased,10,10,0
+267,biased,10,3,0
+268,non-biased,10,3,1
+269,non-biased,10,11,0
+270,biased,10,1,0
+271,slightly biased,10,8,0
+272,biased,11,8,1
+273,slightly biased,11,11,1
+274,biased,5,5,1
+275,non-biased,5,3,1
+276,slightly biased,5,7,1
