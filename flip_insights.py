@@ -8,20 +8,23 @@ from knn_from_scratch import knn, euclidean_distance
 import pickle
 
 filename = 'finalized_model.sav'
-
 loaded_model = pickle.load(open(filename, 'rb'))
 
 plt.style.use('seaborn')
 
 news = pd.read_csv("dataset_flip.csv", index_col=0)
 
-st.title("Behind the scenes")
-st.write("## Prediction model for 'Flip the Script'")
-
-st.write("This research consisted of a morphosyntactic and semantic analysis of 276 articles written in English with the purpose of recognizing the existence of gendered-language in well-known news media. To summarize and analize observations, I used summary statistics to create a prediction model and as a reference for this report, added euclidean distance prediction with 3 neighbors.")
+st.title(":alembic: Data Science Report")
+st.write("## __*Project: 'Flip the Script'*__")
+st.write("### Behind the scenes —*from Data Analysis till Machine Learning*")
+st.write("\n")
+st.write("\n")
+st.write("### Prediction")
+st.write("\n")
+st.write("Select **source**, **topic** and **author's gender** from the sidebar to predict if an article under these parameters uses gendered language.")
 
 st.sidebar.header("Prediction parameters")
-st.sidebar.write("Select the following parameters to predict if a news article uses gendered-language as per this research.")
+st.sidebar.header(":crystal_ball:")
 
 src = {  "abc news": 1,
         "al jazeera": 2,
@@ -52,13 +55,14 @@ tpc= {  "business": 1,
         }
 
 sex= {  "male": 0,
-        "female": 1       
+        "female": 1,
+        "none": 2      
         }
 
 def user_input_features():
     source_name = st.sidebar.selectbox("Source", ('abc news', 'al jazeera', 'bbc news', 'cnbc', 'cnn', 'deutsche welle', 'newsweek', 'npr', 'reuters', 'science', 'the irish times', 'the new york times'))
     topic = st.sidebar.selectbox("Topic", ('business', 'culture', 'food and drinks', 'health', 'local news', 'people', 'politics', 'social science', 'sports', 'technology', 'travel', 'world'))
-    gender_author = st.sidebar.selectbox("Author's gender", ('female', 'male'))
+    gender_author = st.sidebar.selectbox("Author's gender", ('female', 'male', 'none'))
 #    #words_count = st.sidebar.slider("Quantity of words", 279, 2632, 686)
     features = [src[source_name], tpc[topic], sex[gender_author]]
     features = np.array(features)
@@ -83,11 +87,34 @@ bias= { 0 :"non-biased",
 y_prediction = loaded_model.predict(user_input1)
 prediction = y_prediction[0]
 
-st.sidebar.subheader("Model Prediction")
+st.write("\n")
+st.write("\n")
+st.write("#### :crystal_ball: Results")
+st.write("\n")
 #Prediction as a string
-st.sidebar.write("The article might be " + str(bias[prediction]))
+st.write("*The article might be: *" + str(bias[prediction]))
+st.write("\n")
+st.write("\n")
 
-st.sidebar.subheader("Prediction according to euclidean distance")
+
+st.write("### Table of Contents")
+st.write("\n")
+st.write("1. Introduction")
+st.write("2. Dataset")
+st.write("3. Machine Learning")
+st.write("4. Plots")
+st.write("5. Conclusion")
+st.write("\n")
+st.write("\n")
+
+st.write("### 1. Introduction")
+st.write("\n")
+st.write("This research consisted of a morphosyntactic and semantic analysis of 276 articles written in English with the purpose of recognizing the existence of gendered language in well-known news media. To summarize and analize observations, I used summary statistics to create a prediction model and as a reference for this report, added euclidean distance prediction with 3 neighbors.")
+st.write("\n")
+st.write("#### :crystal_ball: Prediction according to euclidean distance")
+st.write("\n")
+st.write("Select **source**, **topic** and **author's gender** from the sidebar to see prediction.")
+st.write("\n")
 
 def predict_news(news_query, k_predictions):
     raw_news_data = []
@@ -119,26 +146,31 @@ if __name__ == '__main__':
 
     # Print suggested predictions
     for recommendation in predicted_case:
-        st.sidebar.write("33.3% chance " + str(recommendation[1]))
+        st.write("*33.3% chance *" + str(recommendation[1]))
 
-st.write("Due to the nature of the dataset 'categorical data', I decided on using KNeighbors. All the steps I took were through troubleshooting. I created another csv file, where I labeled every article according to some parameters that I established. Mean() was the key function for every calculation and after getting these values, I crossed information according to three attributes: Topic, Source and Global mean (all articles). The labels were established as below:")
-
-st.write("*Non-biased: Equal to 0,*")
-
-st.write("*Slightly biased: More than 0 and less than the mean value,*")
-
-st.write("*Biased: Equal to or more than the mean value.*")
-
-st.write("After comparing the three labels from the three aforementioned attributes, I assigned one unique label, which summarized the other three and was the most frequently occurring label.")
-#st.write("There is a high chance that the article is " + str(recommendation[1]))
-
-
-st.write("## Dataset")
-st.write("I created this dataset from scratch for the analysis.")
+st.write("\n")
+st.write("\n")
+st.write("### 2. Dataset")
+st.write("\n")
+st.write("After doing some research and visiting popular websites used by data scientists, I realized that the existing datasets were out of scope of our MVP. I had no other choice but to create a dataset from scratch using the algorithm, that I created for the app.")
 
 col_names = news.columns.tolist()
 col_select = st.multiselect("Columns",col_names, default = col_names)
 st.dataframe(news[col_select])
+st.write("\n")
+st.write("\n")
+
+st.write("### 3. Machine Learning")
+st.write("\n")
+st.write("Due to the nature of the dataset (categorical dataset), I decided to use KNeighbors. Likewise, I created another csv file, where I labeled every article according to some parameters that I established. These parameters were mainly set by calculation the mean and after getting values, I crosschecked information according to three attributes: **topic**, **source** and **global mean** (all articles). The labels were established as below:")
+st.write("\n")
+st.write("* *Non-biased: Equal to 0,*")
+st.write("* *Slightly biased: More than 0 and less than the mean value,*")
+st.write("* *Biased: Equal to or more than the mean value.*")
+st.write("\n")
+st.write("After comparing the three labels from the three aforementioned attributes, I assigned one unique label, which summarized the other three and was the most frequently occurring label.")
+#st.write("There is a high chance that the article is " + str(recommendation[1]))
+
 
 total_pct = {'Category': ['male personal pronoun','masculine determiners','female personal pronoun','masculine nouns','feminine determiners','feminine nouns','male titles','adjectives with femenine connotation','female titles','adjectives with masculine connotation'], 
             'Percentage':[2.9,2.1,1.5,1.1,0.9,0.9,0.3,0.1,0.1,0]} 
@@ -171,9 +203,106 @@ df_masc_title = pd.DataFrame(total_masc_title)
 
 #st.dataframe(df_sum)
 
-st.write("## Graphics")
+st.subheader("3.1. Global Statistics")
 
-st.subheader("Categories in %")
+#st.subheader("Global Analysis / Conversion ratio - Min")
+news_ratio = news[news['ratio'] > 0]
+st.write()
+
+st.write(pd.DataFrame({
+     'Measure': ["Global Analysis / Converted Words - Mean", "Global Analysis / Quantity of Words - Mean", "Global Analysis / Conversion ratio - Max", "Global Analysis / Conversion ratio - Mean", "Global Analysis: Femenine nouns / Ratio % - Mean", "Global Analysis: Masculine nouns / Ratio % - Mean", "Global Analysis / Conversion ratio - Min"],
+     'Values': [news['words_converted'].mean(), news['words_count'].mean(), news['ratio'].max(), news['ratio'].mean(), news['rt_noun_fem'].mean(), news['rt_noun_masc'].mean(), news_ratio['ratio'].min()],
+ }))
+
+st.subheader("3.2. Statistics - Source: Deutsche Welle")
+
+news_source_name = news[news['source_name'] =='deutsche welle']
+a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+st.write()
+
+news_source_name = news[news['source_name'] =='deutsche welle']
+b = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+
+news_source_name = news[news['source_name'] =='deutsche welle']
+c = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+
+st.write(pd.DataFrame({
+     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+     'Values': [statistics.mean(a),statistics.mean(b),statistics.mean(c)],
+}))
+
+st.subheader("3.3. Statistics - Source: NPR")
+
+#st.subheader("Nouns / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='npr']
+d = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+#st.write(statistics.mean(d))
+
+#st.subheader("Adjectives / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='npr']
+e = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(e))
+
+#st.subheader("Both / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='npr']
+f = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(f))
+
+st.write(pd.DataFrame({
+     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+     'Values': [statistics.mean(d),statistics.mean(e),statistics.mean(f)],
+}))
+
+st.subheader("3.4. Statistics - Source: BBC News")
+
+#st.subheader("Nouns / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='bbc news']
+g = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+#st.write(statistics.mean(g))
+
+#st.subheader("Adjectives / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='bbc news']
+h = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(h))
+
+#st.subheader("Both / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='bbc news']
+i = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(i))
+
+st.write(pd.DataFrame({
+     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+     'Values': [statistics.mean(g),statistics.mean(h),statistics.mean(i)],
+}))
+
+st.subheader("3.5. Statistics - Source: The Irish Times")
+
+#st.subheader("Nouns / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='the irish times']
+j = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+#st.write(statistics.mean(j))
+
+#st.subheader("Adjectives / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='the irish times']
+k = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(k))
+
+#st.subheader("Both / Ratio % - Mean")
+news_source_name = news[news['source_name'] =='the irish times']
+l = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+#st.write(statistics.mean(l))
+
+st.write(pd.DataFrame({
+     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+     'Values': [statistics.mean(j),statistics.mean(k),statistics.mean(l)],
+}))
+
+
+st.write("\n")
+st.write("\n")
+st.write("### 4. Plots")
+
+st.write("### Categories in %")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_sum['Percentage'], y=df_sum['Category'], alpha=0.5, palette="cubehelix", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -191,7 +320,7 @@ for p in ax.patches:
         ax.annotate(percentage, (x, y))
 st.pyplot(fig)
 
-st.subheader("The 10 Most Frequently Used Femenine Nouns")
+st.write("### The 10 Most Frequently Used Femenine Nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_noun['Quantity of articles'], y=df_fem_noun['Words'], alpha=0.5, palette="viridis", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -202,7 +331,7 @@ plt.title('The 10 Most Frequently Used Femenine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.subheader("The 10 Most Frequently Used Masculine Nouns")
+st.write("### The 10 Most Frequently Used Masculine Nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_masc_noun['Quantity of articles'], y=df_masc_noun['Words'], alpha=0.5, palette="crest", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -213,7 +342,7 @@ plt.title('The 10 Most Frequently Used Masculine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.subheader("Adjectives with femenine connotation in articles")
+st.write("### Adjectives with femenine connotation in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_adj_fem['Quantity of articles'], y=df_adj_fem['Words'], alpha=0.5, palette="mako", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -224,7 +353,7 @@ plt.title('Adjectives with femenine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.subheader("Adjectives with masculine connotation in articles")
+st.write("### Adjectives with masculine connotation in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_adj_masc['Quantity of articles'], y=df_adj_masc['Words'], alpha=0.5, palette="flare", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -235,7 +364,7 @@ plt.title('Adjectives with masculine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.subheader("Female titles in articles")
+st.write("### Female titles in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_title['Quantity of articles'], y=df_fem_title['Words'], alpha=0.5, palette="magma", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -246,7 +375,7 @@ plt.title('Female titles in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.subheader("Masculine titles in articles")
+st.write("### Masculine titles in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_masc_title['Quantity of articles'], y=df_masc_title['Words'], alpha=0.5, palette="Set2", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -256,97 +385,6 @@ plt.xlabel("Quantity of articles, where these titles were found")
 plt.title('Masculine titles in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
-
-st.subheader("Machine Learning")
-st.subheader("Global Analysis / Converted Words - Mean")
-st.write(news['words_converted'].mean())
-
-st.subheader("Global Analysis / Quantity of Words - Mean")
-st.write(news['words_count'].mean())
-
-st.subheader("Global Analysis / Conversion ratio - Min")
-news_ratio = news[news['ratio'] > 0]
-st.write(news_ratio['ratio'].min())
-
-st.subheader("Global Analysis / Conversion ratio - Max")
-st.write(news['ratio'].max())
-
-st.subheader("Global Analysis / Conversion ratio - Mean")
-st.write(news['ratio'].mean())
-
-st.subheader("Global Analysis: Femenine nouns / Ratio % - Mean")
-st.write(news['rt_noun_fem'].mean())
-
-st.subheader("Global Analysis: Masculine nouns / Ratio % - Mean")
-st.write(news['rt_noun_masc'].mean())
-
-st.write("## Bias - Deutsche Welle")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='deutsche welle']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='deutsche welle']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='deutsche welle']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - NPR")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - BBC News")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - The Irish Times")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
 
 st.subheader("Bias - ABC News")
 
@@ -1039,3 +1077,28 @@ st.pyplot(fig)
 #news.groupby(['topic']).mean()
 #news.groupby(['female']).mean()
 
+st.write("\n")
+st.write("\n")
+st.write("### 5. Conclusion")
+st.write("\n")
+st.write("The estimates delivered by the algorithm should be used as a reference since the dataset is not large enough to set a precedent. The research consisting of: 276 articles from 12 sources about 12 topics most of them published between December 2020 and the first week of February 2021, can give an insight that gendered language does exist in the media and varies according to source, topic and author's gender. Future studies and extension of the dataset will help the algorithm to be robust and a link between the neutral converter and the model could provide a direct bias prediction with higher accuracy using units converted and categories.")
+
+st.write("These softwares together with the algorithm were intended to encourage users to reflect about these questions.")
+st.write("\n")
+st.write("Gender converter:")
+st.write("\n")
+st.write("* Does the reversed text show a difference in relation to the original one? Does the meaning change? (semantic differences)")
+st.write("\n")
+st.write("Neutral converter:")
+st.write("\n")
+st.write("* Does the meaning of the text change when using the software? (semantic and morphosyntactic differences)")
+st.write("* Is it necessary to define the gender of a person through pronouns, nouns, determiners, titles, etc. in a text?")
+st.write("* Is it necessary to define the gender of an expression through adverbs or adjectives in a text?")
+st.write("\n")
+st.write("Model:")
+st.write("\n")
+st.write("* Is there a reason why the media use certain words instead of neutral options?")
+st.write("* Do topics or the author's gender have an influence on how articles are written?")
+st.write("\n")
+st.write("\n")
+st.write("© Copyright 2021 Leticia Valladares. All rights reserved.")
