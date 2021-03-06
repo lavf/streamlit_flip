@@ -16,7 +16,8 @@ news = pd.read_csv("dataset_flip.csv", index_col=0)
 
 st.title(":alembic: Data Science Report")
 st.write("## __*Project: 'Flip the Script'*__")
-st.write("### Behind the scenes —*from Data Analysis till Machine Learning*")
+st.write("### Behind the scenes —*from Data Analysis to Machine Learning*")
+st.write("[Leticia Valladares](http://leticiavalladares.me)")
 st.write("\n")
 st.write("\n")
 st.write("### Prediction")
@@ -100,16 +101,18 @@ st.write("\n")
 st.write("### Table of Contents")
 st.write("\n")
 st.write("1. Introduction")
-st.write("2. Dataset")
-st.write("3. Machine Learning")
-st.write("4. Plots")
-st.write("5. Conclusion")
+st.write("2. Software Algorithm")
+st.write("3. Dataset")
+st.write("4. Machine Learning")
+st.write("5. Plots")
+st.write("6. Conclusion")
+st.write("7. References")
 st.write("\n")
 st.write("\n")
 
 st.write("### 1. Introduction")
 st.write("\n")
-st.write("This research consisted of a morphosyntactic and semantic analysis of 276 articles written in English with the purpose of recognizing the existence of gendered language in well-known news media. To summarize and analize observations, I used summary statistics to create a prediction model and as a reference for this report, added euclidean distance prediction with 3 neighbors.")
+st.write("This research consisted of a morphosyntactic and semantic analysis of 276 articles written in English with the purpose of recognizing the existence of gendered language in well-known news media. To summarize and analize observations, I used summary statistics to create a prediction model and as a reference for this report, added euclidean distance prediction with three neighbors.")
 st.write("\n")
 st.write("#### :crystal_ball: Prediction according to euclidean distance")
 st.write("\n")
@@ -148,9 +151,48 @@ if __name__ == '__main__':
     for recommendation in predicted_case:
         st.write("*33.3% chance *" + str(recommendation[1]))
 
+
 st.write("\n")
 st.write("\n")
-st.write("### 2. Dataset")
+st.write("### 2. Software Algorithm")
+st.write("\n")
+
+st.write("#### 2.1. Original Words vs. Converted Words (replaced with neutral alternatives)")
+fig,ax = plt.subplots() #must create a subplot
+ax = plt.plot(news['words_count'], color='mediumaquamarine', label='Words in total')
+plt.plot(news['words_converted'], color='mediumorchid', label='Words converted')
+plt.ylabel("Quantity of words")
+plt.xlabel('Quantity of articles')
+plt.legend(loc='upper left')
+#plt.ylim(200, 1000)
+#ax = sns.lineplot(x=news['words_count'], y=news['words_converted'], data= news['topic']) #, color='indianred'
+st.pyplot(fig)
+st.write("After creating the gender and neutral converters, I started with text analysis. The first samples gave me an idea on how to structure this study. I defined the three main attributes, which were thought for machine learning:")
+
+st.write("*Sources: 'abc news', 'al jazeera', 'bbc news', 'cnbc', 'cnn', 'deutsche welle', 'newsweek', 'npr', 'reuters', 'science', 'the irish times', 'the new york times'*")
+
+st.write("*Topics: 'business', 'culture', 'food and drinks', 'health', 'local news', 'people', 'politics', 'social science', 'sports', 'technology', 'travel', 'world'*")
+
+st.write("*Author's Gender: 'male', 'female', 'none'*")
+
+st.write("I used the Counter library, created another functions for text analysis and categorized the units, which were converted, grammatically into ten groups:")
+
+st.write("1. *'female personal pronoun (she)',*")
+st.write("2. *'male personal pronoun (he)',*")
+st.write("3. *'feminine determiners (her, herself)',*")
+st.write("4. *'masculine determiners (him, his, himself)',*")
+st.write("5. *'masculine nouns',*")
+st.write("6. *'femenine nouns',*")
+st.write("7. *'adjectives with masculine connotation',*")
+st.write("8. *'adjectives with femenine connotation',*")
+st.write("9. *'male title',*")
+st.write("10. *'female title'.*")
+
+st.write("I registered in the dataset: the number of words per article, the number of words converted, the number of words converted as per grammatical and morphological category, a list with the words converted, and six lists with words converted to analyze possible bias according to the following categories: *'masculine nouns', 'femenine nouns', 'adjectives with masculine connotation', 'adjectives with femenine connotation', 'male title', 'female title'*.")
+
+st.write("\n")
+st.write("\n")
+st.write("### 3. Dataset")
 st.write("\n")
 st.write("After doing some research and visiting popular websites used by data scientists, I realized that the existing datasets were out of scope of our MVP. I had no other choice but to create a dataset from scratch using the algorithm, that I created for the app.")
 
@@ -160,8 +202,22 @@ st.dataframe(news[col_select])
 st.write("\n")
 st.write("\n")
 
-st.write("### 3. Machine Learning")
+st.write("### 4. Machine Learning")
 st.write("\n")
+
+st.write("#### 4.1. Residual of a regression")
+fig,ax = plt.subplots()
+ax = sns.residplot(data=news, x="words_converted", y="words_count", color="indianred")
+st.pyplot(fig)
+
+st.write("#### 4.2. Higher-order regressions")
+fig,ax = plt.subplots()
+ax = plt.scatter(news['words_converted'], news['words_count'], label='Articles', color='#766BCE', marker='o')
+sns.regplot(data=news, x="words_converted", y="words_count", color="#E3ABCA", scatter=None, label= "First order")
+sns.regplot(data=news, x="words_converted", y="words_count", color="#94DBBC", scatter=None, order=2, label= "Second order")
+plt.legend(loc='upper right')
+st.pyplot(fig)
+
 st.write("Due to the nature of the dataset (categorical dataset), I decided to use KNeighbors. Likewise, I created another csv file, where I labeled every article according to some parameters that I established. These parameters were mainly set by calculation the mean and after getting values, I crosschecked information according to three attributes: **topic**, **source** and **global mean** (all articles). The labels were established as below:")
 st.write("\n")
 st.write("* *Non-biased: Equal to 0,*")
@@ -170,6 +226,20 @@ st.write("* *Biased: Equal to or more than the mean value.*")
 st.write("\n")
 st.write("After comparing the three labels from the three aforementioned attributes, I assigned one unique label, which summarized the other three and was the most frequently occurring label.")
 #st.write("There is a high chance that the article is " + str(recommendation[1]))
+st.write("The KNN model delivered the following scores:")
+st.write("\n")
+st.write("*Accuracy of test set: 0.51*")
+
+st.write("*Accuracy of training set: 0.41*")
+
+st.write("*Accuracy of set: 0.48*")
+st.write("\n")
+st.write("The dataset doesn’t have enough attributes in order to increase accuracy. At the beginning, the model had a 63% accuracy without splitting data into train and test. I tuned the model with: StandardScale(), GridSearchCV(), which resulted in:")
+st.write("\n")
+st.write("*Best leaf_size: 1*")
+st.write("*Best p: 1*")
+st.write("*Best n_neighbors: 15*")
+st.write("\n")
 
 
 total_pct = {'Category': ['male personal pronoun','masculine determiners','female personal pronoun','masculine nouns','feminine determiners','feminine nouns','male titles','adjectives with femenine connotation','female titles','adjectives with masculine connotation'], 
@@ -203,7 +273,7 @@ df_masc_title = pd.DataFrame(total_masc_title)
 
 #st.dataframe(df_sum)
 
-st.subheader("3.1. Global Statistics")
+st.write("#### 4.3. Global Statistics")
 
 #st.subheader("Global Analysis / Conversion ratio - Min")
 news_ratio = news[news['ratio'] > 0]
@@ -214,7 +284,7 @@ st.write(pd.DataFrame({
      'Values': [news['words_converted'].mean(), news['words_count'].mean(), news['ratio'].max(), news['ratio'].mean(), news['rt_noun_fem'].mean(), news['rt_noun_masc'].mean(), news_ratio['ratio'].min()],
  }))
 
-st.subheader("3.2. Statistics - Source: Deutsche Welle")
+st.write("#### 4.4. Statistics - Source: Deutsche Welle")
 
 news_source_name = news[news['source_name'] =='deutsche welle']
 a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
@@ -231,7 +301,7 @@ st.write(pd.DataFrame({
      'Values': [statistics.mean(a),statistics.mean(b),statistics.mean(c)],
 }))
 
-st.subheader("3.3. Statistics - Source: NPR")
+st.write("#### 4.5. Statistics - Source: NPR")
 
 #st.subheader("Nouns / Ratio % - Mean")
 news_source_name = news[news['source_name'] =='npr']
@@ -253,7 +323,7 @@ st.write(pd.DataFrame({
      'Values': [statistics.mean(d),statistics.mean(e),statistics.mean(f)],
 }))
 
-st.subheader("3.4. Statistics - Source: BBC News")
+st.write("#### 4.6. Statistics - Source: BBC News")
 
 #st.subheader("Nouns / Ratio % - Mean")
 news_source_name = news[news['source_name'] =='bbc news']
@@ -275,7 +345,7 @@ st.write(pd.DataFrame({
      'Values': [statistics.mean(g),statistics.mean(h),statistics.mean(i)],
 }))
 
-st.subheader("3.5. Statistics - Source: The Irish Times")
+st.write("#### 4.7. Statistics - Source: The Irish Times")
 
 #st.subheader("Nouns / Ratio % - Mean")
 news_source_name = news[news['source_name'] =='the irish times']
@@ -300,9 +370,21 @@ st.write(pd.DataFrame({
 
 st.write("\n")
 st.write("\n")
-st.write("### 4. Plots")
+st.write("### 5. Plots")
+st.write("### 5.1. Plots - Quantitative Analysis")
 
-st.write("### Categories in %")
+# st.write("### Converted words per category")
+# fig,ax = plt.subplots() #must create a subplot
+# ax = plt.plot(news['noun_masc'], color='mediumaquamarine', label='Masc nouns')
+# plt.plot(news['noun_fem'], color='mediumorchid', label='Fem nouns')
+# plt.plot(news['deter_pron_masc'], color='limegreen', label='Masc determiners')
+# plt.plot(news['deter_pron_fem'], color='hotpink', label='Fem determiners')
+# plt.ylabel("Quantity of words")
+# plt.xlabel('Quantity of articles')
+# plt.legend(loc='upper left')
+# st.pyplot(fig)
+
+st.write("#### 5.1.1. Categories in %")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_sum['Percentage'], y=df_sum['Category'], alpha=0.5, palette="cubehelix", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -320,7 +402,7 @@ for p in ax.patches:
         ax.annotate(percentage, (x, y))
 st.pyplot(fig)
 
-st.write("### The 10 Most Frequently Used Femenine Nouns")
+st.write("#### 5.1.2. The 10 Most Frequently Used Femenine Nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_noun['Quantity of articles'], y=df_fem_noun['Words'], alpha=0.5, palette="viridis", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -331,7 +413,7 @@ plt.title('The 10 Most Frequently Used Femenine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("### The 10 Most Frequently Used Masculine Nouns")
+st.write("#### 5.1.3. The 10 Most Frequently Used Masculine Nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_masc_noun['Quantity of articles'], y=df_masc_noun['Words'], alpha=0.5, palette="crest", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -342,7 +424,7 @@ plt.title('The 10 Most Frequently Used Masculine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("### Adjectives with femenine connotation in articles")
+st.write("#### 5.1.4. Adjectives with femenine connotation in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_adj_fem['Quantity of articles'], y=df_adj_fem['Words'], alpha=0.5, palette="mako", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -353,7 +435,7 @@ plt.title('Adjectives with femenine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("### Adjectives with masculine connotation in articles")
+st.write("#### 5.1.5. Adjectives with masculine connotation in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_adj_masc['Quantity of articles'], y=df_adj_masc['Words'], alpha=0.5, palette="flare", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -364,7 +446,7 @@ plt.title('Adjectives with masculine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("### Female titles in articles")
+st.write("#### 5.1.6. Female titles in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_title['Quantity of articles'], y=df_fem_title['Words'], alpha=0.5, palette="magma", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -375,7 +457,7 @@ plt.title('Female titles in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("### Masculine titles in articles")
+st.write("#### 5.1.7. Masculine titles in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_masc_title['Quantity of articles'], y=df_masc_title['Words'], alpha=0.5, palette="Set2", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
@@ -386,6 +468,109 @@ plt.title('Masculine titles in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
+st.write("\n")
+st.write("\n")
+st.write("### 5.2. Plots using ratio")
+
+st.write("#### 5.2.1. Author's gender")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.barplot(x=news['gender_author'], y=news['ratio'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None) #rocket, hls 
+plt.ylim(1.201, 2.303)
+#plt.xlim(0, 10)
+plt.ylabel('Converted words ratio')
+plt.xlabel("Author's gender")
+plt.title('Ratio = Neutral * % / Original')
+plt.legend(loc='upper right')
+st.pyplot(fig)
+
+st.write("#### 5.2.2. Author's gender per topic")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.barplot(x=news['ratio'], y=news['topic'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None, order=[ 'people', 'culture', 'local news', 'sports', 'social science', 'world', 'politics', 'business', 'technology', 'food and drinks', 'travel','health']) #rocket, hls 
+#plt.ylim(0, 4)
+#plt.xlim(0, 10)
+plt.ylabel('Topic')
+plt.xlabel('Converted words ratio')
+plt.title("Author's gender per topic")
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("#### 5.2.3. Global analysis - Topic")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.barplot(x=news['ratio'], y=news['topic'], alpha=0.5, palette="hls", ci=None, order=[ 'people', 'culture', 'local news', 'sports', 'social science', 'world', 'politics', 'business', 'technology', 'food and drinks', 'travel','health']) #rocket, hls 
+#plt.ylim(0, 4)
+#plt.xlim(0, 10)
+plt.ylabel('Topic')
+plt.xlabel('Converted words ratio')
+plt.title('Global analysis - Topic')
+st.pyplot(fig)
+
+st.write("#### 5.2.4. Author's gender per source")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.barplot(x=news['ratio'], y=news['source_name'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None, order=['the new york times', 'the irish times', 'bbc news', 'newsweek', 'deutsche welle','cnbc','cnn', 'npr','al jazeera', 'reuters','abc news', 'science']) #rocket, hls 
+#plt.ylim(0, 4)
+#plt.xlim(0, 10)
+plt.ylabel('Source')
+plt.xlabel('Converted words ratio')
+plt.title('Ratio = Neutral * % / Original')
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("#### 5.2.5. Global analysis - Source")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.barplot(x=news['ratio'], y=news['source_name'], alpha=0.5, palette="hls", ci=None, order=['the new york times', 'the irish times', 'bbc news', 'newsweek', 'deutsche welle','cnbc','cnn', 'npr','al jazeera', 'reuters','abc news', 'science']) #rocket, hls 
+#plt.ylim(0, 4)
+#plt.xlim(0, 10)
+plt.ylabel('Source')
+plt.xlabel('Converted words ratio')
+plt.title('Global analysis - Source')
+st.pyplot(fig)
+
+st.write("#### 5.2.6. Ratio of conversions per topic")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.scatterplot(x=news['ratio'], y=news['topic'], alpha=0.5, hue=news['words_count'], size=news['words_count'], sizes=(50,500), palette="mako") #rocket, hls 
+#plt.ylim(0, 10)
+plt.xlim(0, 10)
+plt.ylabel("Topics")
+plt.xlabel('Converted words ratio')
+plt.title('Ratio = Neutral * % / Original')
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("#### 5.2.7. Ratio of conversions per source")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.scatterplot(x=news['ratio'], y=news['source_name'], alpha=0.5, hue=news['words_count'], size=news['words_count'], sizes=(50,500), palette="rocket") #rocket, hls 
+#plt.ylim(0, 10)
+plt.xlim(0, 10)
+plt.ylabel("Source")
+plt.xlabel('Converted words ratio')
+plt.title('Ratio = Neutral * % / Original')
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("#### 5.2.8. Male nouns")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.scatterplot(x=news['rt_noun_masc'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
+#plt.ylim(0, 10)
+#plt.xlim(0, 10)
+plt.ylabel("Topic")
+plt.xlabel('Quantity of male nouns (%) from total converted words')
+plt.title('')
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("#### 5.2.9. Female nouns")
+fig,ax = plt.subplots() #must create a subplot
+ax =sns.scatterplot(x=news['rt_noun_fem'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
+#plt.ylim(0, 10)
+#plt.xlim(0, 10)
+plt.ylabel("Topic")
+plt.xlabel('Quantity of female nouns (%) from total converted words')
+plt.title('')
+plt.legend(loc='lower right')
+st.pyplot(fig)
+
+st.write("\n")
+st.write("\n")
 st.subheader("Bias - ABC News")
 
 st.subheader("Nouns / Ratio % - Mean")
@@ -942,137 +1127,6 @@ st.write(statistics.mean(a))
 # news_topic = news[news['topic'] =='local news']
 # st.write(news_topic['ratio'].max())
 
-st.write("# Original vs. Neutral")
-fig,ax = plt.subplots() #must create a subplot
-ax = plt.plot(news['words_count'], color='mediumaquamarine', label='Words in total')
-plt.plot(news['words_converted'], color='mediumorchid', label='Words converted')
-plt.ylabel("Quantity of words")
-plt.xlabel('Quantity of articles')
-plt.legend(loc='upper left')
-#plt.ylim(200, 1000)
-#ax = sns.lineplot(x=news['words_count'], y=news['words_converted'], data= news['topic']) #, color='indianred'
-st.pyplot(fig)
-
-st.write("# Converted words per category")
-fig,ax = plt.subplots() #must create a subplot
-ax = plt.plot(news['noun_masc'], color='mediumaquamarine', label='Masc nouns')
-plt.plot(news['noun_fem'], color='mediumorchid', label='Fem nouns')
-plt.plot(news['deter_pron_masc'], color='limegreen', label='Masc determiners')
-plt.plot(news['deter_pron_fem'], color='hotpink', label='Fem determiners')
-plt.ylabel("Quantity of words")
-plt.xlabel('Quantity of articles')
-plt.legend(loc='upper left')
-st.pyplot(fig)
-
-st.write("# Author's gender")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.barplot(x=news['gender_author'], y=news['ratio'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None) #rocket, hls 
-plt.ylim(1.201, 2.303)
-#plt.xlim(0, 10)
-plt.ylabel('Converted words ratio')
-plt.xlabel("Author's gender")
-plt.title('Ratio = Neutral * % / Original')
-plt.legend(loc='upper right')
-st.pyplot(fig)
-
-st.write("# Author's gender per topic")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.barplot(x=news['ratio'], y=news['topic'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None, order=[ 'people', 'culture', 'local news', 'sports', 'social science', 'world', 'politics', 'business', 'technology', 'food and drinks', 'travel','health']) #rocket, hls 
-#plt.ylim(0, 4)
-#plt.xlim(0, 10)
-plt.ylabel('Topic')
-plt.xlabel('Converted words ratio')
-plt.title("Author's gender per topic")
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Global analysis - Topic")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.barplot(x=news['ratio'], y=news['topic'], alpha=0.5, palette="hls", ci=None, order=[ 'people', 'culture', 'local news', 'sports', 'social science', 'world', 'politics', 'business', 'technology', 'food and drinks', 'travel','health']) #rocket, hls 
-#plt.ylim(0, 4)
-#plt.xlim(0, 10)
-plt.ylabel('Topic')
-plt.xlabel('Converted words ratio')
-plt.title('Global analysis - Topic')
-st.pyplot(fig)
-
-st.write("# Author's gender per source")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.barplot(x=news['ratio'], y=news['source_name'], alpha=0.5, hue=news['gender_author'], palette="hls", ci=None, order=['the new york times', 'the irish times', 'bbc news', 'newsweek', 'deutsche welle','cnbc','cnn', 'npr','al jazeera', 'reuters','abc news', 'science']) #rocket, hls 
-#plt.ylim(0, 4)
-#plt.xlim(0, 10)
-plt.ylabel('Source')
-plt.xlabel('Converted words ratio')
-plt.title('Ratio = Neutral * % / Original')
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Global analysis - Source")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.barplot(x=news['ratio'], y=news['source_name'], alpha=0.5, palette="hls", ci=None, order=['the new york times', 'the irish times', 'bbc news', 'newsweek', 'deutsche welle','cnbc','cnn', 'npr','al jazeera', 'reuters','abc news', 'science']) #rocket, hls 
-#plt.ylim(0, 4)
-#plt.xlim(0, 10)
-plt.ylabel('Source')
-plt.xlabel('Converted words ratio')
-plt.title('Global analysis - Source')
-st.pyplot(fig)
-
-st.write("# Ratio of conversions per topic")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.scatterplot(x=news['ratio'], y=news['topic'], alpha=0.5, hue=news['words_count'], size=news['words_count'], sizes=(50,500), palette="mako") #rocket, hls 
-#plt.ylim(0, 10)
-plt.xlim(0, 10)
-plt.ylabel("Topics")
-plt.xlabel('Converted words ratio')
-plt.title('Ratio = Neutral * % / Original')
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Ratio of conversions per source")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.scatterplot(x=news['ratio'], y=news['source_name'], alpha=0.5, hue=news['words_count'], size=news['words_count'], sizes=(50,500), palette="rocket") #rocket, hls 
-#plt.ylim(0, 10)
-plt.xlim(0, 10)
-plt.ylabel("Source")
-plt.xlabel('Converted words ratio')
-plt.title('Ratio = Neutral * % / Original')
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Male nouns")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.scatterplot(x=news['rt_noun_masc'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
-#plt.ylim(0, 10)
-#plt.xlim(0, 10)
-plt.ylabel("Topic")
-plt.xlabel('Quantity of male nouns (%) from total converted words')
-plt.title('')
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Female nouns")
-fig,ax = plt.subplots() #must create a subplot
-ax =sns.scatterplot(x=news['rt_noun_fem'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
-#plt.ylim(0, 10)
-#plt.xlim(0, 10)
-plt.ylabel("Topic")
-plt.xlabel('Quantity of female nouns (%) from total converted words')
-plt.title('')
-plt.legend(loc='lower right')
-st.pyplot(fig)
-
-st.write("# Residual of a regression")
-fig,ax = plt.subplots()
-ax = sns.residplot(data=news, x="words_converted", y="words_count", color="indianred")
-st.pyplot(fig)
-
-st.write("# Higher-order regressions")
-fig,ax = plt.subplots()
-ax = plt.scatter(news['words_converted'], news['words_count'], label='Articles', color='#766BCE', marker='o')
-sns.regplot(data=news, x="words_converted", y="words_count", color="#E3ABCA", scatter=None, label= "First order")
-sns.regplot(data=news, x="words_converted", y="words_count", color="#94DBBC", scatter=None, order=2, label= "Second order")
-plt.legend(loc='upper right')
-st.pyplot(fig)
 
 #news.groupby(['topic']).mean()
 #news.groupby(['female']).mean()
@@ -1099,6 +1153,35 @@ st.write("Model:")
 st.write("\n")
 st.write("* Is there a reason why the media use certain words instead of neutral options?")
 st.write("* Do topics or the author's gender have an influence on how articles are written?")
+st.write("\n")
+st.write("\n")
+st.write("### 6. References")
+st.write("\n")
+st.write("✔️ [same-sexparents.com: 'maddy' and related words for mommy and daddy](https://www.same-sexparents.com/post/gender-neutral-non-binary-parent-titles)")
+
+st.write("✔️ [European Parliament: Gendered Neutral Language Guideline](https://www.europarl.europa.eu/cmsdata/151780/GNL_Guidelines_EN.pdf)")
+
+st.write("✔️ [Cambridge Dictionary: Sexist Language](https://dictionary.cambridge.org/de/grammatik/britisch-grammatik/sexist-language)")
+
+st.write("✔️ [Oxford Learners Dictionary: Gender Fluid](https://www.oxfordlearnersdictionaries.com/definition/english/gender-fluid)")
+
+st.write("✔️ [Teen Vogue: How to use gender-neutral language](https://www.teenvogue.com/story/how-to-use-gender-neutral-words)")
+
+st.write("✔️ [Vogue: “They” as a singular pronoun](https://www.vogue.com/article/they-nonbinary-pronoun-added-to-dictionary)")
+
+st.write("✔️ [Merriam-Webster: “They” as a singular pronoun](https://www.merriam-webster.com/words-at-play/singular-nonbinary-they)")
+
+st.write("✔️ [Grammarly: “They” as a singular pronoun](https://www.grammarly.com/blog/use-the-singular-they/)")
+
+st.write("✔️ [Gender-Inclusive Language](https://writingcenter.unc.edu/tips-and-tools/gender-inclusive-language/)")
+
+st.write("✔️ [Gender Neutral Aunt/Uncle](https://medium.com/bein-enby/gender-neutral-aunt-uncle-87041eccd765)")
+
+st.write("✔️ [Gender Neutral: Paternalism ≠ Parentalism](https://opencommons.uconn.edu/cgi/viewcontent.cgi?article=1433&context=law_review])")
+
+st.write("✔️ [Manslaughter: Legal term for a form of homicide has no gender-neutral replacement.](http://web.mit.edu/comdor/editguide/style-matters/gender_neutral.html)")
+
+st.write("✔️ [Examples of common adjectives that carry a gender connotation and alternatives, and some examples of common gendered nouns and alternatives](https://eige.europa.eu/publications/toolkit-gender-sensitive-communication)")
 st.write("\n")
 st.write("\n")
 st.write("© Copyright 2021 Leticia Valladares. All rights reserved.")
