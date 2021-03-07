@@ -284,88 +284,88 @@ st.write(pd.DataFrame({
      'Values': [news['words_converted'].mean(), news['words_count'].mean(), news['ratio'].max(), news['ratio'].mean(), news['rt_noun_fem'].mean(), news['rt_noun_masc'].mean(), news_ratio['ratio'].min()],
  }))
 
-st.write("#### 4.4. Statistics - Source: Deutsche Welle")
+# st.write("#### 4.4. Statistics - Source: Deutsche Welle")
 
-news_source_name = news[news['source_name'] =='deutsche welle']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write()
+# news_source_name = news[news['source_name'] =='deutsche welle']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write()
 
-news_source_name = news[news['source_name'] =='deutsche welle']
-b = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# news_source_name = news[news['source_name'] =='deutsche welle']
+# b = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
 
-news_source_name = news[news['source_name'] =='deutsche welle']
-c = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# news_source_name = news[news['source_name'] =='deutsche welle']
+# c = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
 
-st.write(pd.DataFrame({
-     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
-     'Values': [statistics.mean(a),statistics.mean(b),statistics.mean(c)],
-}))
+# st.write(pd.DataFrame({
+#      'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+#      'Values': [statistics.mean(a),statistics.mean(b),statistics.mean(c)],
+# }))
 
-st.write("#### 4.5. Statistics - Source: NPR")
+# st.write("#### 4.5. Statistics - Source: NPR")
 
-#st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-d = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-#st.write(statistics.mean(d))
+# #st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='npr']
+# d = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# #st.write(statistics.mean(d))
 
-#st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-e = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(e))
+# #st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='npr']
+# e = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(e))
 
-#st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='npr']
-f = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(f))
+# #st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='npr']
+# f = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(f))
 
-st.write(pd.DataFrame({
-     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
-     'Values': [statistics.mean(d),statistics.mean(e),statistics.mean(f)],
-}))
+# st.write(pd.DataFrame({
+#      'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+#      'Values': [statistics.mean(d),statistics.mean(e),statistics.mean(f)],
+# }))
 
-st.write("#### 4.6. Statistics - Source: BBC News")
+# st.write("#### 4.6. Statistics - Source: BBC News")
 
-#st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-g = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-#st.write(statistics.mean(g))
+# #st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='bbc news']
+# g = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# #st.write(statistics.mean(g))
 
-#st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-h = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(h))
+# #st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='bbc news']
+# h = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(h))
 
-#st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='bbc news']
-i = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(i))
+# #st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='bbc news']
+# i = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(i))
 
-st.write(pd.DataFrame({
-     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
-     'Values': [statistics.mean(g),statistics.mean(h),statistics.mean(i)],
-}))
+# st.write(pd.DataFrame({
+#      'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+#      'Values': [statistics.mean(g),statistics.mean(h),statistics.mean(i)],
+# }))
 
-st.write("#### 4.7. Statistics - Source: The Irish Times")
+# st.write("#### 4.7. Statistics - Source: The Irish Times")
 
-#st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-j = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-#st.write(statistics.mean(j))
+# #st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the irish times']
+# j = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# #st.write(statistics.mean(j))
 
-#st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-k = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(k))
+# #st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the irish times']
+# k = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(k))
 
-#st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the irish times']
-l = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-#st.write(statistics.mean(l))
+# #st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the irish times']
+# l = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# #st.write(statistics.mean(l))
 
-st.write(pd.DataFrame({
-     'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
-     'Values': [statistics.mean(j),statistics.mean(k),statistics.mean(l)],
-}))
+# st.write(pd.DataFrame({
+#      'Measure': ["Nouns / Ratio % - Mean", "Adjectives / Ratio % - Mean", "Both / Ratio % - Mean"],
+#      'Values': [statistics.mean(j),statistics.mean(k),statistics.mean(l)],
+# }))
 
 
 st.write("\n")
@@ -571,345 +571,345 @@ st.pyplot(fig)
 
 st.write("\n")
 st.write("\n")
-st.subheader("Bias - ABC News")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='abc news']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='abc news']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='abc news']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - CNBC")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnbc']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnbc']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnbc']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - The New York Times")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the new york times']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the new york times']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='the new york times']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - Al Jazeera")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='al jazeera']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='al jazeera']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='al jazeera']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - Science")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='science']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='science']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='science']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - CNN")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnn']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnn']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='cnn']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - Reuters")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='reuters']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='reuters']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='reuters']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - Newsweek")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='newsweek']
-a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='newsweek']
-a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_source_name = news[news['source_name'] =='newsweek']
-a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Bias - Social Science")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='social science']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='social science']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='social science']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Business")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='business']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='business']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='business']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Sports")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='sports']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='sports']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='sports']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Food and Drinks")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='food and drinks']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='food and drinks']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='food and drinks']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Technology")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='technology']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='technology']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='technology']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Health")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='health']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='health']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='health']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Politics")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='politics']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='politics']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='politics']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Travel")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='travel']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='travel']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='travel']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - People")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='people']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='people']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='people']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Local News")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='local news']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='local news']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='local news']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - Culture")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='culture']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='culture']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='culture']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.write("## Bias - World")
-
-st.subheader("Nouns / Ratio % - Mean")
-news_topic = news[news['topic'] =='world']
-a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Adjectives / Ratio % - Mean")
-news_topic = news[news['topic'] =='world']
-a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
-
-st.subheader("Both / Ratio % - Mean")
-news_topic = news[news['topic'] =='world']
-a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
-st.write(statistics.mean(a))
+# st.subheader("Bias - ABC News")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='abc news']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='abc news']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='abc news']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - CNBC")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnbc']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnbc']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnbc']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - The New York Times")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the new york times']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the new york times']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='the new york times']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - Al Jazeera")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='al jazeera']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='al jazeera']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='al jazeera']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - Science")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='science']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='science']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='science']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - CNN")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnn']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnn']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='cnn']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - Reuters")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='reuters']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='reuters']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='reuters']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - Newsweek")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='newsweek']
+# a = [news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='newsweek']
+# a = [news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_source_name = news[news['source_name'] =='newsweek']
+# a = [news_source_name['rt_title_fem'].mean(), news_source_name['rt_title_masc'].mean(),news_source_name['rt_noun_fem'].mean(), news_source_name['rt_noun_masc'].mean(), news_source_name['rt_adj_conn_fem'].mean(), news_source_name['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Bias - Social Science")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='social science']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='social science']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='social science']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Business")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='business']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='business']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='business']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Sports")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='sports']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='sports']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='sports']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Food and Drinks")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='food and drinks']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='food and drinks']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='food and drinks']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Technology")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='technology']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='technology']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='technology']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Health")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='health']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='health']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='health']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Politics")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='politics']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='politics']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='politics']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Travel")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='travel']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='travel']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='travel']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - People")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='people']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='people']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='people']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Local News")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='local news']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='local news']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='local news']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - Culture")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='culture']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='culture']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='culture']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.write("## Bias - World")
+
+# st.subheader("Nouns / Ratio % - Mean")
+# news_topic = news[news['topic'] =='world']
+# a = [news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Adjectives / Ratio % - Mean")
+# news_topic = news[news['topic'] =='world']
+# a = [news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
+
+# st.subheader("Both / Ratio % - Mean")
+# news_topic = news[news['topic'] =='world']
+# a = [news_topic['rt_title_fem'].mean(), news_topic['rt_title_masc'].mean(),news_topic['rt_noun_fem'].mean(), news_topic['rt_noun_masc'].mean(), news_topic['rt_adj_conn_fem'].mean(), news_topic['rt_adj_conn_masc'].mean()]
+# st.write(statistics.mean(a))
 
 # st.write("# Social Science Stats")
 
