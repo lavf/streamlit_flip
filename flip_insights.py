@@ -280,7 +280,7 @@ news_ratio = news[news['ratio'] > 0]
 st.write()
 
 st.write(pd.DataFrame({
-     'Measure': ["Global Analysis / Converted Words - Mean", "Global Analysis / Quantity of Words - Mean", "Global Analysis / Conversion ratio - Max", "Global Analysis / Conversion ratio - Mean", "Global Analysis: Femenine nouns / Ratio % - Mean", "Global Analysis: Masculine nouns / Ratio % - Mean", "Global Analysis / Conversion ratio - Min"],
+     'Measure': ["Global Analysis / Converted Words - Mean", "Global Analysis / Quantity of Words - Mean", "Global Analysis / Conversion ratio - Max", "Global Analysis / Conversion ratio - Mean", "Global Analysis: Feminine nouns / Ratio % - Mean", "Global Analysis: Masculine nouns / Ratio % - Mean", "Global Analysis / Conversion ratio - Min"],
      'Values': [news['words_converted'].mean(), news['words_count'].mean(), news['ratio'].max(), news['ratio'].mean(), news['rt_noun_fem'].mean(), news['rt_noun_masc'].mean(), news_ratio['ratio'].min()],
  }))
 
@@ -558,7 +558,7 @@ plt.title('')
 plt.legend(loc='lower right')
 st.pyplot(fig)
 
-st.write("#### 5.2.9. Femenine nouns")
+st.write("#### 5.2.9. Feminine nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.scatterplot(x=news['rt_noun_fem'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
 #plt.ylim(0, 10)
