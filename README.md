@@ -27,7 +27,7 @@ I used the Counter library, created another functions for text analysis and cate
 
 1. *'feminine personal pronoun (she)',*
 2. *'masculine personal pronoun (he)',*
-3. *'feminine determiners (her, herself)',*
+3. *'feminine object pronouns and determiners (her, herself)',*
 4. *'masculine object pronouns and determiners (him, his, himself)',*
 5. *'masculine nouns',*
 6. *'feminine nouns',*
