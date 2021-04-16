@@ -177,18 +177,18 @@ st.write("*Author's Gender: 'male', 'female', 'none'*")
 
 st.write("I used the Counter library, created another functions for text analysis and categorized the units, which were converted, grammatically into ten groups:")
 
-st.write("1. *'female personal pronoun (she)',*")
-st.write("2. *'male personal pronoun (he)',*")
-st.write("3. *'feminine determiners (her, herself)',*")
-st.write("4. *'masculine determiners (him, his, himself)',*")
+st.write("1. *'feminine personal pronoun (she)',*")
+st.write("2. *'masculine personal pronoun (he)',*")
+st.write("3. *'feminine object pronouns and determiners (her, herself)',*")
+st.write("4. *'masculine object pronouns and determiners (him, his, himself)',*")
 st.write("5. *'masculine nouns',*")
-st.write("6. *'femenine nouns',*")
+st.write("6. *'feminine nouns',*")
 st.write("7. *'adjectives with masculine connotation',*")
-st.write("8. *'adjectives with femenine connotation',*")
-st.write("9. *'male title',*")
-st.write("10. *'female title'.*")
+st.write("8. *'adjectives with feminine connotation',*")
+st.write("9. *'masculine title',*")
+st.write("10. *'feminine title'.*")
 
-st.write("I registered in the dataset: the number of words per article, the number of words converted, the number of words converted as per grammatical and morphological category, a list with the words converted, and six lists with words converted to analyze possible bias according to the following categories: *'masculine nouns', 'femenine nouns', 'adjectives with masculine connotation', 'adjectives with femenine connotation', 'male title', 'female title'*.")
+st.write("I registered in the dataset: the number of words per article, the number of words converted, the number of words converted as per grammatical and morphological category, a list with the words converted, and six lists with words converted to analyze possible bias according to the following categories: *'masculine nouns', 'feminine nouns', 'adjectives with masculine connotation', 'adjectives with feminine connotation', 'masculine title', 'feminine title'*.")
 
 st.write("\n")
 st.write("\n")
@@ -402,14 +402,14 @@ for p in ax.patches:
         ax.annotate(percentage, (x, y))
 st.pyplot(fig)
 
-st.write("#### 5.1.2. The 10 Most Frequently Used Femenine Nouns")
+st.write("#### 5.1.2. The 10 Most Frequently Used Feminine Nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_noun['Quantity of articles'], y=df_fem_noun['Words'], alpha=0.5, palette="viridis", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
 #plt.xlim(0, 10)
-plt.ylabel('Femenine Nouns')
+plt.ylabel('Feminine Nouns')
 plt.xlabel("Quantity of articles, where these nouns were found")
-plt.title('The 10 Most Frequently Used Femenine Nouns')
+plt.title('The 10 Most Frequently Used Feminine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
@@ -424,14 +424,14 @@ plt.title('The 10 Most Frequently Used Masculine Nouns')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("#### 5.1.4. Adjectives with femenine connotation in articles")
+st.write("#### 5.1.4. Adjectives with feminine connotation in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_adj_fem['Quantity of articles'], y=df_adj_fem['Words'], alpha=0.5, palette="mako", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
 #plt.xlim(0, 10)
-plt.ylabel('Adjectives with femenine connotation')
+plt.ylabel('Adjectives with feminine connotation')
 plt.xlabel("Quantity of articles, where these adjectives were found")
-plt.title('Adjectives with femenine connotation in articles')
+plt.title('Adjectives with feminine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
@@ -446,14 +446,14 @@ plt.title('Adjectives with masculine connotation in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
-st.write("#### 5.1.6. Female titles in articles")
+st.write("#### 5.1.6. Feminine titles in articles")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.barplot(x=df_fem_title['Quantity of articles'], y=df_fem_title['Words'], alpha=0.5, palette="magma", ci=None) #rocket, hls 
 #plt.ylim(1.201, 2.303)
 #plt.xlim(0, 10)
-plt.ylabel('Female titles')
+plt.ylabel('Feminine titles')
 plt.xlabel("Quantity of articles, where these titles were found")
-plt.title('Female titles in articles')
+plt.title('Feminine titles in articles')
 #plt.legend(loc='upper right')
 st.pyplot(fig)
 
@@ -547,24 +547,24 @@ plt.title('Ratio = Neutral * % / Original')
 plt.legend(loc='lower right')
 st.pyplot(fig)
 
-st.write("#### 5.2.8. Male nouns")
+st.write("#### 5.2.8. Masculine nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.scatterplot(x=news['rt_noun_masc'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
 #plt.ylim(0, 10)
 #plt.xlim(0, 10)
 plt.ylabel("Topic")
-plt.xlabel('Quantity of male nouns (%) from total converted words')
+plt.xlabel('Quantity of masculine nouns (%) from total converted words')
 plt.title('')
 plt.legend(loc='lower right')
 st.pyplot(fig)
 
-st.write("#### 5.2.9. Female nouns")
+st.write("#### 5.2.9. Femenine nouns")
 fig,ax = plt.subplots() #must create a subplot
 ax =sns.scatterplot(x=news['rt_noun_fem'], y=news['topic'], hue=news['gender_author'], palette="husl") #rocket, hls 
 #plt.ylim(0, 10)
 #plt.xlim(0, 10)
 plt.ylabel("Topic")
-plt.xlabel('Quantity of female nouns (%) from total converted words')
+plt.xlabel('Quantity of femenine nouns (%) from total converted words')
 plt.title('')
 plt.legend(loc='lower right')
 st.pyplot(fig)
@@ -1133,7 +1133,7 @@ st.write("\n")
 
 st.write("\n")
 st.write("\n")
-st.write("### 5. Conclusion")
+st.write("### 6. Conclusion")
 st.write("\n")
 st.write("The estimates delivered by the algorithm should be used as a reference since the dataset is not large enough to set a precedent. The research consisting of: 276 articles from 12 sources about 12 topics most of them published between December 2020 and the first week of February 2021, can give an insight that gendered language does exist in the media and varies according to source, topic and author's gender. Future studies and extension of the dataset will help the algorithm to be robust and a link between the neutral converter and the model could provide a direct bias prediction with higher accuracy using units converted and categories.")
 
@@ -1155,7 +1155,7 @@ st.write("* Is there a reason why the media use certain words instead of neutral
 st.write("* Do topics or the author's gender have an influence on how articles are written?")
 st.write("\n")
 st.write("\n")
-st.write("### 6. References")
+st.write("### 7. References")
 st.write("\n")
 st.write("✔️ [same-sexparents.com: 'maddy' and related words for mommy and daddy](https://www.same-sexparents.com/post/gender-neutral-non-binary-parent-titles)")
 
