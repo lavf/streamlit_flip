@@ -11,7 +11,7 @@ The way of thinking for the neutral converter was different. A switch function w
 
 Having both converters, the module test phase was the next step. My idea was to use it as a reference for the dictionary articles from well-known news media. From the first samples, the first bugs came to light. There was an issue when the program converted the pronoun "he" or "she" into "they". The verb, which follows, remains the same (3rd person singular). If I would have tried to change every verb, I would have had to create a dictionary with every converted verb.
 
-With the neutral converter, I thought about how to create a data analysis using articles. I found a dataset on Kaggle (article_news.csv) and started using it to get some insights. Nevertheless, the quantity of words of the title and headlines were not enough to give them. Therefore, I started analyzing news articles with at least 200 words and recorded them in my own dataset. I noticed that the most insightful article was a particular case about a person (topic: local news). News articles about politics or health (Covid-19) do not use female or male articles or pronouns to a great extent.
+With the neutral converter, I thought about how to create a data analysis using articles. I found a dataset on Kaggle (article_news.csv) and started using it to get some insights. Nevertheless, the quantity of words of the title and headlines were not enough to give them. Therefore, I started analyzing news articles with at least 200 words and recorded them in my own dataset. I noticed that the most insightful article was a particular case about a person (topic: local news). News articles about politics or health (Covid-19) do not use feminine or masculine articles or pronouns to a great extent.
 
 By the end of December, there was a beta version for gender converter (adding new words) and a beta version with disclaimer (verbs - morphological rules) for neutral converter. We decided as a group to not push the dataset on GitHub due to legal terms and added another attribute called "gender_author" to the dataset in order to make a distinction between male and female authors. I set a milestone, that by January 17 a hundred analyzed articles should be included in the dataset. In connection with Linguistics, I started documenting the most significant conversions included in the dictionaries so this page should be included as "References" on the website.
 
@@ -25,18 +25,18 @@ In early January I defined the three main attributes, which should be used for p
 
 I used the Counter library, created another functions for text analysis and categorized the units, which were converted, grammatically into ten groups:
 
-1. *'female personal pronoun (she)',*
-2. *'male personal pronoun (he)',*
+1. *'feminine personal pronoun (she)',*
+2. *'masculine personal pronoun (he)',*
 3. *'feminine determiners (her, herself)',*
-4. *'masculine determiners (him, his, himself)',*
+4. *'masculine object pronouns and determiners (him, his, himself)',*
 5. *'masculine nouns',*
-6. *'femenine nouns',*
+6. *'feminine nouns',*
 7. *'adjectives with masculine connotation',*
-8. *'adjectives with femenine connotation',*
-9. *'male title',*
-10. *'female title'.*
+8. *'adjectives with feminine connotation',*
+9. *'masculine title',*
+10. *'feminine title'.*
 
-I registered in the dataset: the number of words per article, the number of words converted, the number of words converted as per grammatical and morphological category, a list with the words converted, and six lists with words converted to analyze possible bias according to the following categories: *'masculine nouns', 'femenine nouns', 'adjectives with masculine connotation', 'adjectives with femenine connotation', 'male title', 'female title'*.
+I registered in the dataset: the number of words per article, the number of words converted, the number of words converted as per grammatical and morphological category, a list with the words converted, and six lists with words converted to analyze possible bias according to the following categories: *'masculine nouns', 'feminine nouns', 'adjectives with masculine connotation', 'adjectives with feminine connotation', 'masculine title', 'feminine title'*.
 
 After reaching 100 analyzed articles, I started plotting. For this purpose, I used Streamlit in order to see all the data and get insights. With the first plots, I explained the insights to front end since they were in charge of plotting graphics for the website. However, the first insights were used as a reference since the 100 articles represented only 37% of total analysis.
 
